@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: predict-node
+  name: predict-node
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: predict-node
+    spec:
+      containers:
+      - image: gcr.io/<PROJECT_ID>/predict:v1.0
+        name: predict-node
+        ports:
+        - containerPort: 8081
+
